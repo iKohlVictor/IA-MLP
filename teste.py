@@ -1,21 +1,15 @@
 import os
 import numpy as np
 
-print("\x1b[2J\x1b[1;1H")
-
 current_directory = os.getcwd()
 completodiretorio=current_directory+'/digitos';
 
 os.chdir(completodiretorio)
 
 # Lendo o arquivo de saídas esperadas (target)
-# t = np.loadtxt('target.csv', delimiter=';', skiprows=0)
 t = np.loadtxt('respostas.csv', delimiter=',', skiprows=0)
-# t=np.loadtxt('results.txt')
 
 
-# os.chdir(r'E:\IFTM atual\2021-01\Inteligência Artificial\Trabalho 4 - classificação de dígitos MLP\Lucas Luan - Lucas Neto - Paulo Ricardo')
-# t=np.loadtxt('targest16.csv',delimiter=';',skiprows=0)
 vanterior = np.loadtxt('vnovo.csv', delimiter=';', skiprows=0)
 v0anterior = np.loadtxt('v0novo.csv', delimiter=';', skiprows=0)
 wanterior = np.loadtxt('wnovo.csv', delimiter=';', skiprows=0)
@@ -32,14 +26,9 @@ limiar = 0
 zin = np.zeros((1, neur))
 target = np.zeros((vsai, 1))
 
-# os.chdir(r'E:\IFTM atual\2020-02\Inteligência Artificial\digitos')
-
-###################### Limiarização
-
-
 #### Teste da rede
-aminicial = 80
-amtestedigitos = 9
+aminicial = 60
+amtestedigitos = 20
 yteste = np.zeros((vsai, 1))
 k2 = '_'
 k4 = '.txt'
@@ -75,7 +64,9 @@ for m in range(10):
         cont = cont + 1
 taxa = contcerto / cont
 print('taxa')
-print(taxa)
+porcentagem = (taxa * 100)
+
+print("{:.2f}".format(porcentagem) + '%')
 
 ################## Distância Euclidiana
 ### Teste da rede
@@ -113,3 +104,4 @@ print(taxa)
 #
 # taxa=contcerto/cont
 # print(taxa)
+

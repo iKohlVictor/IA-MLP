@@ -7,14 +7,14 @@ completodiretorio=current_directory+'/digitos';
 
 os.chdir(completodiretorio)
 
-ampdigitos=80
+ampdigitos=50
 vsai=10
 amostras=ampdigitos*vsai
 entradas=256
 neur=200
 limiar=0.0
 alfa=0.005
-errotolerado=0.01
+errotolerado=0.2
 listaciclo=[]
 listaerro=[]
 
