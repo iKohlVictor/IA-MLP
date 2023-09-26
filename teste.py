@@ -1,13 +1,14 @@
 import os
 import numpy as np
+import string
 
 current_directory = os.getcwd()
-completodiretorio=current_directory+'/digitos';
+completodiretorio=current_directory+'/letras';
 
 os.chdir(completodiretorio)
 
 # Lendo o arquivo de saídas esperadas (target)
-t = np.loadtxt('respostas.csv', delimiter=',', skiprows=0)
+t = np.loadtxt('matriz.csv', delimiter=',', skiprows=0)
 
 
 vanterior = np.loadtxt('vnovo.csv', delimiter=';', skiprows=0)
@@ -27,21 +28,23 @@ zin = np.zeros((1, neur))
 target = np.zeros((vsai, 1))
 
 #### Teste da rede
-aminicial = 82
-amtestedigitos = 10
+alfabeto = list(string.ascii_uppercase)
+aminicial = 2
+amtestedigitos = 26
 yteste = np.zeros((vsai, 1))
 k2 = '_'
 k4 = '.txt'
 cont = 0
 contcerto = 0
 # ordem=np.zeros(amostras)
-for m in range(10):
-    k1 = str(m)
-    for n in range(amtestedigitos):
-        k3a = n + aminicial
+for m in range(26):
+    k1 = alfabeto[m]
+    for n in range(2):
+        k3a = n
         k3 = str(k3a)
         nome = k1 + k2 + k3 + k4
         xteste = np.loadtxt(nome)
+        print(nome)
         for m2 in range(vsai):
             for n2 in range(neur):
                 zin[0][n2] = np.dot(xteste, vanterior[:, n2]) + v0anterior[n2][0]
