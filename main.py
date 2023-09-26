@@ -2,15 +2,18 @@ import numpy as np
 import random as rd
 import matplotlib.pyplot as plt
 import os
+import string
+
 current_directory = os.getcwd()
-completodiretorio=current_directory+'/digitos';
+completodiretorio=current_directory+'/letras';
 
 os.chdir(completodiretorio)
 
-ampdigitos=50
-vsai=10
+ampdigitos=2
+vsai=26
 amostras=ampdigitos*vsai
-entradas=256
+alfabeto = list(string.ascii_uppercase)
+entradas=16
 neur=200
 limiar=0.0
 alfa=0.005
@@ -25,11 +28,12 @@ k4='.txt'
 cont=0
 ordem=np.zeros(amostras)
 
+
 for m in range(vsai):
-    k1=str(m)
+    k1=alfabeto[m]
 
     for n in range(ampdigitos):
-        k3a=n+1
+        k3a=n
         k3=str(k3a)
         nome=k1+k2+k3+k4
         entrada=np.loadtxt(nome)
@@ -39,7 +43,7 @@ for m in range(vsai):
 ordem=ordem.astype('int')
 
 #LENDO O ARQUIVO DE SAÍDAS ESPERADAS (TARGET)
-t = np.loadtxt('respostas.csv', delimiter=',', skiprows=0)
+t = np.loadtxt('matriz.csv', delimiter=',', skiprows=0)
 # t=np.loadtxt('results.txt')
 
 #GERAR MATRIZ DE PESOS SINÁPTICOS ALEATORIAMENTE
@@ -131,11 +135,6 @@ while errotolerado < errototal:
     print('Ciclo\t Erro')
     print(ciclo, '\t', errototal)
 
-plt.plot(listaciclo,listaerro)
-plt.xlabel('Ciclo')
-plt.ylabel('Erro')
-plt.show()
-
 print("vnovo", vnovo)
 print("v0novo", v0novo)
 print("wnovo", wnovo)
@@ -145,6 +144,13 @@ np.savetxt("vnovo.csv", vnovo, delimiter=';')
 np.savetxt("v0novo.csv", v0novo, delimiter=';')
 np.savetxt("wnovo.csv", wnovo, delimiter=';')
 np.savetxt("w0novo.csv", w0novo, delimiter=';')
+
+plt.plot(listaciclo,listaerro)
+plt.xlabel('Ciclo')
+plt.ylabel('Erro')
+plt.show()
+
+
 
 # #os digitos vão de 0 a 135 pra cada padrão
 # #temos a amostra tal pra frente
