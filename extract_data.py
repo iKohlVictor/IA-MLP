@@ -22,9 +22,11 @@ for indexLetra, letra in enumerate(alfabeto):
     countLinha = 0
     for indexLinha, linha in enumerate(matriz):
         if linha[0] == letra:
-            arrayLinha = linha[2:]
+            arrayLinha = linha.split(',')
+            arrayLinha = arrayLinha[1:]
+            arrayLinha = ' '.join(arrayLinha)
 
-            while countLinha <= 100:
+            while countLinha <= 1:
                 nome_arquivo = letra + '_' + str(countLinha) + ".txt"
                 caminho_completo = os.path.join(caminhoDaPasta, nome_arquivo)
                 with open(caminho_completo, "w") as arquivo:
