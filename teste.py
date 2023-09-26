@@ -27,8 +27,8 @@ zin = np.zeros((1, neur))
 target = np.zeros((vsai, 1))
 
 #### Teste da rede
-aminicial = 60
-amtestedigitos = 20
+aminicial = 82
+amtestedigitos = 10
 yteste = np.zeros((vsai, 1))
 k2 = '_'
 k4 = '.txt'

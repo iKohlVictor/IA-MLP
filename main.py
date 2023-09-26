@@ -14,7 +14,7 @@ entradas=256
 neur=200
 limiar=0.0
 alfa=0.005
-errotolerado=0.2
+errotolerado=2
 listaciclo=[]
 listaerro=[]
 
