@@ -1,12 +1,12 @@
 import os
 import numpy as np
 
-t = np.loadtxt('respostas.csv', delimiter=',', skiprows=0)
+t = np.loadtxt('./letras/matriz.csv', delimiter=',', skiprows=0)
 
-vanterior = np.loadtxt('vnovo.csv', delimiter=';', skiprows=0)
-v0anterior = np.loadtxt('v0novo.csv', delimiter=';', skiprows=0)
-wanterior = np.loadtxt('wnovo.csv', delimiter=';', skiprows=0)
-w0anterior = np.loadtxt('w0novo.csv', delimiter=';', skiprows=0)
+vanterior = np.loadtxt('./letras/vnovo.csv', delimiter=';', skiprows=0)
+v0anterior = np.loadtxt('./letras/v0novo.csv', delimiter=';', skiprows=0)
+wanterior = np.loadtxt('./letras/wnovo.csv', delimiter=';', skiprows=0)
+w0anterior = np.loadtxt('./letras/w0novo.csv', delimiter=';', skiprows=0)
 
 (vent, neur) = np.shape(vanterior)
 (vsai, numclasses) = np.shape(t)
@@ -16,7 +16,7 @@ target = np.zeros((vsai, 1))
 
 ## teste manual
 
-xteste=np.loadtxt('2_72.txt')
+xteste=np.loadtxt('./letras/B_1.txt')
 for m2 in range(vsai):
     for n2 in range(neur):
         zin[0][n2]=np.dot(xteste, vanterior[:,n2] + v0anterior[0][n2])

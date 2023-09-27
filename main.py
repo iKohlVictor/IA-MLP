@@ -9,7 +9,7 @@ completodiretorio=current_directory+'/letras';
 
 os.chdir(completodiretorio)
 
-ampdigitos=2
+ampdigitos=5
 vsai=26
 amostras=ampdigitos*vsai
 alfabeto = list(string.ascii_uppercase)
@@ -17,7 +17,7 @@ entradas=16
 neur=200
 limiar=0.0
 alfa=0.005
-errotolerado=2
+errotolerado=0.01
 listaciclo=[]
 listaerro=[]
 

@@ -29,7 +29,7 @@ target = np.zeros((vsai, 1))
 
 #### Teste da rede
 alfabeto = list(string.ascii_uppercase)
-aminicial = 2
+aminicial = 65
 amtestedigitos = 26
 yteste = np.zeros((vsai, 1))
 k2 = '_'
@@ -37,14 +37,13 @@ k4 = '.txt'
 cont = 0
 contcerto = 0
 # ordem=np.zeros(amostras)
-for m in range(26):
+for m in range(amtestedigitos):
     k1 = alfabeto[m]
-    for n in range(2):
+    for n in range(aminicial):
         k3a = n
         k3 = str(k3a)
         nome = k1 + k2 + k3 + k4
         xteste = np.loadtxt(nome)
-        print(nome)
         for m2 in range(vsai):
             for n2 in range(neur):
                 zin[0][n2] = np.dot(xteste, vanterior[:, n2]) + v0anterior[n2][0]

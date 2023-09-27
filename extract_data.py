@@ -26,7 +26,7 @@ for indexLetra, letra in enumerate(alfabeto):
             arrayLinha = arrayLinha[1:]
             arrayLinha = ' '.join(arrayLinha)
 
-            while countLinha <= 1:
+            while countLinha < 100:
                 nome_arquivo = letra + '_' + str(countLinha) + ".txt"
                 caminho_completo = os.path.join(caminhoDaPasta, nome_arquivo)
                 with open(caminho_completo, "w") as arquivo:
